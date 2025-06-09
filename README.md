@@ -7,6 +7,6 @@ This is an assignment to recreate the original project which was made in HTML, C
 - ReactJS
 - TailwindCSS
 
-Currently, two official plugins are available:
+Below is the live link to the project, have a look!
 
 [Live link](https://altschool-insta-spots-react.vercel.app/)
