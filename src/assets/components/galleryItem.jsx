@@ -11,7 +11,7 @@ const GalleryItem = ({ image, title, onClick }) => {
     }
     return (
         <article className='space-y-3 '>
-            <img src={image} alt={title} className='rounded-2xl max-w-[413px] max-h-[413px]' onClick={onClick} />
+            <img src={image} alt={title} className='rounded-2xl h-[413px] max-w-[413px] max-h-[413px] object-cover' onClick={onClick} />
             <div className="bottom flex items-center justify-between" onClick={toggleLike}>
                 <p className='font-medium text-main-darks text-lg'>{title}</p>
                 {liked ? <FaHeart size={22} className='text-red-500' /> : <FaRegHeart size={22} color='#21212166' />}

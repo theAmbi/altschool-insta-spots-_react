@@ -41,6 +41,7 @@ const Modal = () => {
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium'>Image</label>
                     <input type="file" className='' accept='image/*' onChange={handleImage} />
+                    {image && <p className="text-sm text-gray-600 mt-2">Selected: {image.name}</p>}
                 </div>
 
                 <div className='flex items-center justify-between gap-5'>
