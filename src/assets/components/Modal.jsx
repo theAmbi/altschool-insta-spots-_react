@@ -5,13 +5,26 @@ import { useGalleryContext } from '../../lib/GalleryContext'
 const Modal = () => {
     const { addItem, setIsModalOpen } = useGalleryContext();
     const [title, setTitle] = React.useState('');
-    // const [image, setImage] = React.useState(null);
+    const [image, setImage] = React.useState(null);
+
+    const handleImage = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImage(reader.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!title) return;
-        addItem({ title });
+        if (!title || !image) return;
+        addItem({ title, image });
     }
+
 
     return (
         <div className='fixed flex flex-col m-auto inset-0 border border-slate-200 bg-white/90 backdrop-blur-2xl rounded-lg py-6 px-8 z-50 max-w-xl max-h-fit'>
@@ -27,7 +40,7 @@ const Modal = () => {
 
                 <div className='flex flex-col gap-2'>
                     <label className='font-medium'>Image</label>
-                    <input type="file" className='' />
+                    <input type="file" className='' accept='image/*' onChange={handleImage} />
                 </div>
 
                 <div className='flex items-center justify-between gap-5'>
